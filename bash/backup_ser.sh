@@ -2,10 +2,9 @@
 
 BDIR=/tmp/backup
 BDATE=$(date +'%d.%m.%Y_%H.%M')
-FILENAME=$BDIR/$(hostname)_$BDATE
+FILENAME="$BDIR"/$(hostname)_"$BDATE"
 
-
-tar --totals=USR1 -czf $FILENAME.tar.gz \
+tar --totals=USR1 -czf "$FILENAME".tar.gz \
 --exclude=/proc \
 --exclude=/tmp \
 --exclude=/mnt \
@@ -20,4 +19,4 @@ tar --totals=USR1 -czf $FILENAME.tar.gz \
 --exclude=/home/*/.cache \
 --exclude=/home/*/.local/share/Trash \
 --exclude=/var/lib/one/datastores \
--C /home/ko55ur . &> $FILENAME.log 
+-C /home/ko55ur . &> "$FILENAME".log 
